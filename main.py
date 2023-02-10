@@ -18,11 +18,19 @@ user_id = os.environ["USER_ID"]
 template_id = os.environ["TEMPLATE_ID"]
 
 
-def get_weather():
+def get_weatherold():
   url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
   res = requests.get(url).json()
   weather = res['data']['list'][0]
   return weather['weather'], math.floor(weather['temp'])
+
+
+def get_weather():
+  url = "https://restapi.amap.com/v3/weather/weatherInfo?city=511623&key=0f5e16a0ea4f3de38518db66fa5e5db1"
+  res = requests.get(url).json()
+#   temp = res["lives"][0]["temperature"].as<String>();
+#   weather = res['data']['list'][0]
+  return res["lives"][0]["weather"], math.floor(float(res["lives"][0]["temperature"]))
 
 def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
