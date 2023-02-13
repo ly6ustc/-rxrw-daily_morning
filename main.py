@@ -26,7 +26,7 @@ def get_weatherold():
 
 
 def get_weather():
-  url = "https://restapi.amap.com/v3/weather/weatherInfo?city=511623&key=0f5e16a0ea4f3de38518db66fa5e5db1"
+  url = "https://restapi.amap.com/v3/weather/weatherInfo?city=510781&key=0f5e16a0ea4f3de38518db66fa5e5db1"
   res = requests.get(url).json()
 #   temp = res["lives"][0]["temperature"].as<String>();
 #   weather = res['data']['list'][0]
